@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyle = createGlobalStyle`
   :root {
     --h1-font-size: 13vw;
-    --h2-font-size: 9vw;
+    --h2-font-size: 8.4vw;
     --h3-font-size: 1.2rem;
 
     --separator-font-size: var(--h1-font-size);

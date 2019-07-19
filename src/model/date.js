@@ -1,19 +1,37 @@
-import { differenceInSeconds } from "date-fns";
+const SECONDS = 1000
+const MINUTES = SECONDS * 60
+const HOURS = MINUTES * 60
+const DAYS = HOURS * 24
 
-export { getDateDifferenceFromNow };
+export { getDateDifferenceFromNow }
 
 function getDateDifferenceFromNow(endDate) {
-  const SECONDS = 1000;
-  const MINUTES = SECONDS * 60;
-  const HOURS = MINUTES * 60;
-  const DAYS = HOURS * 24;
-
-  const difference = endDate.getTime() - new Date().getTime();
+  const difference = endDate.getTime() - new Date().getTime()
 
   return {
-    days: Math.floor(difference / DAYS),
-    hours: Math.floor((difference % DAYS) / HOURS),
-    minutes: Math.floor((difference % HOURS) / MINUTES),
-    seconds: Math.floor((difference % MINUTES) / SECONDS)
-  };
+    days: getTwoDigitNumber(getRemainingDays(difference)),
+    hours: getTwoDigitNumber(getRemainingHours(difference)),
+    minutes: getTwoDigitNumber(getRemainingMinutes(difference)),
+    seconds: getTwoDigitNumber(getRemainingSeconds(difference))
+  }
+}
+
+function getRemainingDays(dateDiff) {
+  return Math.floor(dateDiff / DAYS)
+}
+
+function getRemainingHours(dateDiff) {
+  return Math.floor((dateDiff % DAYS) / HOURS)
+}
+
+function getRemainingMinutes(dateDiff) {
+  return Math.floor((dateDiff % HOURS) / MINUTES)
+}
+
+function getRemainingSeconds(dateDiff) {
+  return Math.floor((dateDiff % MINUTES) / SECONDS)
+}
+
+function getTwoDigitNumber(num) {
+  return num.toString().padStart(2, "0")
 }

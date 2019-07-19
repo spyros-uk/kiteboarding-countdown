@@ -4,7 +4,7 @@ import GlobalStyle from "../components/GlobalStyle"
 import Layout from "../components/Layout"
 import CountDown from "../components/CountDown"
 import Frame from "../components/Frame"
-import { H2 } from "../components/Typography"
+import Legend from "../components/Legend"
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
       <GlobalStyle />
       <Layout>
         <Frame>
-          <H2>KITEBOARDING</H2>
+          <Legend />
           <CountDown />
         </Frame>
       </Layout>
