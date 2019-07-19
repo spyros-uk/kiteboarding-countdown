@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react"
+import styled from "styled-components"
 
-import TimeSeparator from "../components/TimeSeparator";
-import TimeCounter from "./TimeCounter";
+import TimeSeparator from "../components/TimeSeparator"
+import TimeCounter from "./TimeCounter"
 
-import { getDateDifferenceFromNow } from "../model/date";
+import { getDateDifferenceFromNow } from "../model/date"
 
 export default function CountDown() {
-  const LEAVE_DATE = new Date("Aug 09, 2019 17:30:00");
+  const LEAVE_DATE = new Date("Aug 10, 2019 10:00:00")
   const [dateDifference, setDateDifference] = useState(
     getDateDifferenceFromNow(LEAVE_DATE)
-  );
+  )
 
   useEffect(() => {
     const intervalId = setInterval(
       () => setDateDifference(getDateDifferenceFromNow(LEAVE_DATE)),
       1000
-    );
+    )
 
-    return () => clearInterval(intervalId);
-  });
+    return () => clearInterval(intervalId)
+  })
 
   return (
     <TimeStamp>
@@ -31,9 +31,9 @@ export default function CountDown() {
       <TimeSeparator />
       <TimeCounter count={dateDifference.seconds} units="seconds" />
     </TimeStamp>
-  );
+  )
 }
 
 const TimeStamp = styled.div`
   display: flex;
-`;
+`
