@@ -7,7 +7,7 @@ import TimeCounter from "./TimeCounter"
 import { getDateDifferenceFromNow } from "../model/date"
 
 export default function CountDown() {
-  const LEAVE_DATE = new Date("Aug 10, 2019 10:00:00")
+  const LEAVE_DATE = new Date("Aug 10 2019 10:00:00 GMT+0300")
   const [dateDifference, setDateDifference] = useState(
     getDateDifferenceFromNow(LEAVE_DATE)
   )
